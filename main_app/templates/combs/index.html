@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for comb in combs %}
+    <div class="hex-container">
+        <div class="hexagon">
+            <div class="shape">
+                <p>{{ comb.title }}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <div class="hex-container">
+        <div class="hexagon">
+            <div class="add-shape">
+                <p>+</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
