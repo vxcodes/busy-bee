@@ -3,18 +3,22 @@
 {% block content %}
     {% for comb in combs %}
     <div class="hex-container">
-        <div class="hexagon">
-            <div class="shape">
-                <p>{{ comb.title }}</p>
+        <a href="/combs/{{ comb.id }}">
+            <div class="hexagon">
+                <div class="shape">
+                    <p>{{ comb.title }}</p>
+                </div>
             </div>
-        </div>
+        </a>
     </div>
     {% endfor %}
     <div class="hex-container">
-        <div class="hexagon">
-            <div class="add-shape">
-                <p>+</p>
+        <a href="/new-comb/">
+            <div class="hexagon">
+                <div class="add-shape">
+                    <p>+</p>
+                </div>
             </div>
-        </div>
+        </a>
     </div>
 {% endblock %}
