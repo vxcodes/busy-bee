@@ -6,4 +6,7 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('combs/', views.combs_index, name='index'),
     path('combs/<int:comb_id>/', views.combs_detail, name='detail'),
+    path('combs/create/', views.CombCreate.as_view(), name="combs_create"),
+    path('combs/<int:pk>/update/', views.CombUpdate.as_view(), name='combs_update'),
+    path('combs/<int:pk>/delete/', views.CombDelete.as_view(), name='combs_delete'),
 ]

@@ -5,5 +5,9 @@
     <p>{{ comb.description }}</p>
     <p>Today's Date: {{ comb.timestamp }}</p>
     <p>Complete Goal By: {{ comb.atchieve_by }}</p>
+    <div class="card-action">
+        <a href="{% url 'combs_update' comb.id %}">Edit</a>
+        <a href="{% url 'combs_delete' comb.id %}">Delete</a>
+    </div>
 
 {% endblock %}
