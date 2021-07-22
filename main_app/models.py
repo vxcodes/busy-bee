@@ -23,7 +23,7 @@ class Goal(models.Model):
         return self.goal_title
     
     def get_absolute_url(self):
-        return reverse('combs_detail', kwargs={'pk': self.id})
+        return reverse('detail', kwargs={'pk': self.id})
 
 class Charm(models.Model):
     CHARMS = (
@@ -32,7 +32,7 @@ class Charm(models.Model):
         ('D', 'Done'),
     )
 
-    date = models.DateField()
+    date = models.DateField('Complete by')
     charm = models.CharField(
         max_length=1,
         choices=CHARMS,

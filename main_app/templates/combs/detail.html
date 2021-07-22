@@ -9,5 +9,24 @@
         <a href="{% url 'combs_update' comb.id %}">Edit</a>
         <a href="{% url 'combs_delete' comb.id %}">Delete</a>
     </div>
-
+    {% for goal in goals %}
+    <div class="hex-container">
+        <a href="">
+            <div class="hexagon">
+                <div class="shape">
+                    <p>{{ goal.goal_title }}</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="hex-container">
+        <a href="{% url 'goals_create' %}">
+            <div class="hexagon">
+                <div class="add-shape">
+                    <p>+</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    {% endfor %}
 {% endblock %}
