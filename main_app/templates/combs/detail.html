@@ -9,7 +9,7 @@
         <a href="{% url 'combs_update' comb.id %}">Edit</a>
         <a href="{% url 'combs_delete' comb.id %}">Delete</a>
     </div>
-    {% for goal in goals %}
+    {% for goal in comb.goal_set.all %}
     <div class="hex-container">
         <a href="">
             <div class="hexagon">

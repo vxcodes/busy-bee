@@ -1,7 +1,8 @@
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Comb
 from .models import Goal
+from .forms import GoalForm
 
 # Create your views here.
 def home(request):
@@ -27,6 +28,14 @@ class CombCreate(CreateView):
 class GoalCreate(CreateView):
     model = Goal
     fields = '__all__'
+
+# def add_goal(request, comb_id):
+#     form = GoalForm(request.POST)
+#     if form .is_valid():
+#         new_goal = form.save(commit=False)
+#         new_goal.comb_id = comb_id
+#         new_goal.save()
+#     return redirect('index')
 
 class CombUpdate(UpdateView):
     model = Comb
