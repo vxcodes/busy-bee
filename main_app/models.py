@@ -9,7 +9,7 @@ class Comb(models.Model):
         return self.title
     
     def get_absolute_url(self):
-        return reverse('detail', kwargs={ 'pk': self.id })
+        return reverse('detail', kwargs={ 'comb_id': self.id })
 
 class Goal(models.Model):
     goal_title = models.CharField(max_length=100)

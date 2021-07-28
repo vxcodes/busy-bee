@@ -3,8 +3,6 @@
 {% block content %}
     <h1>{{ comb.title }}</h1>
     <p>{{ comb.description }}</p>
-    <p>Today's Date: {{ comb.timestamp }}</p>
-    <p>Complete Goal By: {{ comb.atchieve_by }}</p>
     <div class="card-action">
         <a href="{% url 'combs_update' comb.id %}">Edit</a>
         <a href="{% url 'combs_delete' comb.id %}">Delete</a>
@@ -15,18 +13,15 @@
             <div class="hexagon">
                 <div class="shape">
                     <p>{{ goal.goal_title }}</p>
+                    <p>{{ goal.goal_description }}</p>
                 </div>
             </div>
         </a>
     </div>
     {% endfor %}
-    <div class="hex-container">
-        <a href="{% url 'goals_create' %}">
-            <div class="hexagon">
-                <div class="add-shape">
-                    <p>+</p>
-                </div>
-            </div>
-        </a>
-    </div>
+    <form action="{% url 'add_goal' comb.id %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add goal</button>
+    </form>
 {% endblock %}

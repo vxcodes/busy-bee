@@ -4,6 +4,7 @@ from .models import Comb
 from .models import Goal
 from .forms import GoalForm
 
+
 # Create your views here.
 def home(request):
     return render(request, 'home.html')
@@ -19,27 +20,28 @@ def combs_index(request):
 def combs_detail(request, comb_id):
     comb = Comb.objects.get(id=comb_id)
     goals = Goal.objects.all()
-    return render(request, 'combs/detail.html', {'comb': comb, 'goals': goals})
+    form = GoalForm()
+    return render(request, 'combs/detail.html', {'comb': comb, 'goals': goals, 'form': form})
 
 class CombCreate(CreateView):
     model = Comb
     fields = '__all__'
 
-class GoalCreate(CreateView):
-    model = Goal
-    fields = '__all__'
+# class GoalCreate(CreateView):
+#     model = Goal
+#     fields = ['goal_title', 'goal_description']
 
-# def add_goal(request, comb_id):
-#     form = GoalForm(request.POST)
-#     if form .is_valid():
-#         new_goal = form.save(commit=False)
-#         new_goal.comb_id = comb_id
-#         new_goal.save()
-#     return redirect('index')
+def add_goal(request, comb_id):
+    form = GoalForm(request.POST)
+    if form .is_valid():
+        new_goal = form.save(commit=False)
+        new_goal.comb_id = comb_id
+        new_goal.save()
+    return redirect('index')
 
 class CombUpdate(UpdateView):
     model = Comb
-    fields = ['title', 'description', 'atchieve_by']
+    fields = ['title', 'description']
 
 class CombDelete(DeleteView):
     model = Comb
